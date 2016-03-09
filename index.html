@@ -35,7 +35,9 @@
       dataString = dataString + " " + results.data[number_of_days_elapsed]["fajr_azaan"];
       console.log(dataString);
       var newDate = new Date(dataString);
+      console.log(newDate);
       var hour = newDate.getHours();
+      console.log(hour);
       var minutes = newDate.getMinutes();
       var timeSuffix = "AM";
       function checkHours(i) {
@@ -43,7 +45,7 @@
           i = i - 12;
           timeSuffix = "PM";
           return i;
-        }
+        } console.log(hour);
       }
       hour = checkHours(hour);
       document.getElementById('fajr').innerHTML = hour + ":" + minutes + " " + timeSuffix;
