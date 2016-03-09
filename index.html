@@ -31,7 +31,7 @@
       var number_of_days_elapsed = Math.floor((today.getTime() - start.getTime()) / one_day);
       console.log(number_of_days_elapsed + "days elapsed.")
 
-      // function to iterate over each salat time and write it into DOM.
+      // Accessing prayer times, and writing to DOM innerHTML.
       // Internal Mohid csv template keys/headers for access of each prayer time.
       salatKey = ['fajr_azaan', 'sunrise', 'duhar_azaan', 'asr_azaan', 'maghrib_azaan', 'isha_azaan'];
 
@@ -39,25 +39,30 @@
       salatId = ['fajr', 'sunrise', 'dhuhr', 'asr', 'maghrib', 'isha'];
 
       for (i = 0; i < 6; i++) {
+        // creating the dataString to init new Date object for each prayer time.
+        // Allows for easier manipulation of the data from string to date object.
+        // gives me access to getHours() and getMinutes() methods.
         var dataString = "March 09, 2016";
         dataString = dataString + " " + results.data[number_of_days_elapsed][salatKey[i]];
-        console.log(dataString);
+
         var newDate = new Date(dataString);
-        console.log(newDate);
         var hour = newDate.getHours();
-        console.log(hour);
         var minutes = newDate.getMinutes();
         var timeSuffix = "AM";
+
+        // function to check whether or not hours are above 12 PM and to modify suffix accordingly.
         function checkHours(z) {
-          if (z > 12) {
-            z = z - 12;
-            timeSuffix = "PM";
-            hour = z;
-          } console.log(hour);
-          console.log("this is i " + i);
+          if (z >= 12) {
+            if (z == 12) {
+              timeSuffix = "PM";
+            } else {
+              z = z - 12;
+              timeSuffix = "PM";
+              hour = z;
+            }
+          }
         }
         checkHours(hour);
-        console.log(hour + "at the end before innerHTML");
 
         // using the salatId[i] to access each div and write the proper prayer time.
         document.getElementById(salatId[i]).innerHTML = hour + ":" + minutes + " " + timeSuffix;
