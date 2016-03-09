@@ -9,6 +9,7 @@
   Papa.parse("data.csv", {
     download: true,
     dynamicTyping: true,
+    header: true,
     complete: function(results) {
       console.log("Parsing complete:", results.data);
     }
