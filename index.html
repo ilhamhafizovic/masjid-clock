@@ -22,24 +22,13 @@
       console.log("Parsing complete: Full Result", results.data);
       console.log("Parsing complete: first object", results.data[0]["prayer_date"]);
 
-      var i = 0;
-      var todayDate = stringDate();
-      function stringDate() {
-        var todayDate = new Date();
-        var month = todayDate.getMonth() + 1;
-        month = "0" + month;
-        var date = todayDate.getDate();
-        date = "0" + date;
-        todayDate = month + "/" + date;
-        return todayDate;
-      } console.log(todayDate);
-      console.log("03/09:", results.data[68]["prayer_date"] === todayDate);
-      while (i < 367) {
-        x = 0;
-        if (todayDate === results.data[x]["prayer_date"]) {
-          console.log(x + i); break;
-        } i = i + 1;
-      } console.log(i);
+      // Calculating number of days elapsed since the start of the year.
+      start = new Date("January 1, 2016");
+      today = new Date();
+      var one_day = 1000 * 60 * 60 * 24;
+
+      var number_of_days_elapsed = (today.getTime() - start.getTime()) / one_day;
+      console.log(number_of_days_elapsed + "days elapsed.")
 
       dataString = dataString + " " + results.data[68]["fajr_azaan"];
 
