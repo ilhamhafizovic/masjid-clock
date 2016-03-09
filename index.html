@@ -32,7 +32,7 @@
       var number_of_days_elapsed = Math.floor((today.getTime() - start.getTime()) / one_day);
       console.log(number_of_days_elapsed + "days elapsed.")
 
-      dataString = dataString + " " + results.data[number_of_days_elapsed]["isha_azaan"];
+      dataString = dataString + " " + results.data[number_of_days_elapsed]["fajr_azaan"];
       console.log(dataString);
       var newDate = new Date(dataString);
       console.log(newDate);
