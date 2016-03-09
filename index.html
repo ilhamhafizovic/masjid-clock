@@ -44,10 +44,10 @@
         if (i > 12) {
           i = i - 12;
           timeSuffix = "PM";
-          return i;
+          hour = i;
         } console.log(hour);
       }
-      hour = checkHours(hour);
+
       console.log(hour + "at the end before innerHTML")
       document.getElementById('fajr').innerHTML = hour + ":" + minutes + " " + timeSuffix;
       document.getElementById('sunrise').innerHTML = hour + ":" + minutes + " " + timeSuffix;
