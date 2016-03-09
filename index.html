@@ -28,7 +28,9 @@
       function stringDate() {
         var todayDate = new Date();
         var month = todayDate.getMonth() + 1;
-        var day = todayDate.getDay() + 1;
+        month = "0" + month;
+        var date = todayDate.getDate() + 1;
+        date = "0" + date;
         todayDate = month + "/" + day;
         return todayDate;
       } console.log(todayDate);
