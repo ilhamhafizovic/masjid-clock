@@ -33,31 +33,34 @@
       console.log(number_of_days_elapsed + "days elapsed.")
 
       // function to iterate over each salat time and write it into DOM.
-      salatKey = ['fajr', 'sunrise', 'dhuhr', 'asr', 'maghrib', 'isha'];
+      // Internal Mohid csv template keys/headers for access of each prayer time.
+      salatKey = ['fajr_azaan', 'sunrise_azaan', 'duhar_azaan', 'asr_azaan', 'maghrib_azaan', 'isha_azaan'];
 
-      dataString = dataString + " " + results.data[number_of_days_elapsed][salatKey[0]+"_azaan"];
-      console.log(dataString);
-      var newDate = new Date(dataString);
-      console.log(newDate);
-      var hour = newDate.getHours();
-      console.log(hour);
-      var minutes = newDate.getMinutes();
-      var timeSuffix = "AM";
-      function checkHours(i) {
-        if (i > 12) {
-          i = i - 12;
-          timeSuffix = "PM";
-          hour = i;
-        } console.log(hour);
+      // div Id for element selection.
+      salatId = ['fajr', 'sunrise', 'dhuhr', 'asr', 'maghrib', 'isha'];
+
+      for (i = 0; i < 6; i++) {
+        dataString = dataString + " " + results.data[number_of_days_elapsed][salatKey[0]];
+        console.log(dataString);
+        var newDate = new Date(dataString);
+        console.log(newDate);
+        var hour = newDate.getHours();
+        console.log(hour);
+        var minutes = newDate.getMinutes();
+        var timeSuffix = "AM";
+        function checkHours(i) {
+          if (i > 12) {
+            i = i - 12;
+            timeSuffix = "PM";
+            hour = i;
+          } console.log(hour);
+        }
+        checkHours(hour);
+        console.log(hour + "at the end before innerHTML");
+
+        // using the salatId[i] to access each div and write the proper prayer time.
+        document.getElementById(salatId[i]).innerHTML = hour + ":" + minutes + " " + timeSuffix;
       }
-      checkHours(hour);
-      console.log(hour + "at the end before innerHTML")
-      document.getElementById('fajr').innerHTML = hour + ":" + minutes + " " + timeSuffix;
-      document.getElementById('sunrise').innerHTML = hour + ":" + minutes + " " + timeSuffix;
-      document.getElementById('dhuhr').innerHTML = hour + ":" + minutes + " " + timeSuffix;
-      document.getElementById('asr').innerHTML = hour + ":" + minutes + " " + timeSuffix;
-      document.getElementById('maghrib').innerHTML = hour + ":" + minutes + " " + timeSuffix;
-      document.getElementById('isha').innerHTML = hour + ":" + minutes + " " + timeSuffix;
     }
   });
 </script>
