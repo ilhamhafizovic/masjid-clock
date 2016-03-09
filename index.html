@@ -13,7 +13,6 @@
   Isha <div id='isha' style="display: inline-block;">00:00 AM</div><br />
 
 <script>
-  var dataString = "March 09, 2016";
   Papa.parse("data.csv", {
     download: true,
     dynamicTyping: true,
@@ -40,6 +39,7 @@
       salatId = ['fajr', 'sunrise', 'dhuhr', 'asr', 'maghrib', 'isha'];
 
       for (i = 0; i < 6; i++) {
+        var dataString = "March 09, 2016";
         dataString = dataString + " " + results.data[number_of_days_elapsed][salatKey[0]];
         console.log(dataString);
         var newDate = new Date(dataString);
