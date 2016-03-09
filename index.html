@@ -1,1 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/4.1.2/papaparse.js"></script>
+</head>
+<body>
+<script>
+  Papa.parse("data.csv", {
+    download: true,
+    dynamicTyping: true,
+    complete: function(results) {
+      console.log("Parsing complete:", results);
+    }
+  });
+</script>
 Hello World.
+</body>
+</html>
