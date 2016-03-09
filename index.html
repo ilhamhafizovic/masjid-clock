@@ -14,9 +14,7 @@
     download: true,
     dynamicTyping: true,
     header: true,
-    complete: callBack(results)
-  });
-  function callBack(results) {
+    complete: function(results) {
       console.log("Parsing complete: Full Result", results.data);
       console.log("Parsing complete: first object", results.data[0]["prayer_date"]);
       document.getElementById("test").innerHTML = results.data[68]["isha_azaan"];
@@ -39,6 +37,7 @@
 
   document.getElementById('id1').innerHTML = hour + ":" + minutes + " " + timeSuffix;
     }
+  });
 </script>
 </body>
 </html>
