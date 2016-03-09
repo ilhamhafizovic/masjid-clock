@@ -9,19 +9,20 @@
   <p id="test"></p>
   <p id="id1"></p>
 <script>
-  var window.dataString = "March 09, 2016";
+  var dataString = "March 09, 2016";
   Papa.parse("data.csv", {
     download: true,
     dynamicTyping: true,
     header: true,
-    complete: function(results) {
+    complete: callBack(results);
+  });
+  function callBack(results) {
       console.log("Parsing complete: Full Result", results.data);
       console.log("Parsing complete: first object", results.data[0]["prayer_date"]);
       document.getElementById("test").innerHTML = results.data[68]["isha_azaan"];
       dataString = dataString + " " + results.data[68]["isha_azaan"];
       console.log(dataString);
     }
-  });
   var newDate = new Date(dataString);
 
   var hour = newDate.getHours();
