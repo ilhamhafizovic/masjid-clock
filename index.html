@@ -24,13 +24,14 @@
       console.log("03/09:", results.data[68]["prayer_date"]);
 
       var i = 0;
-      var todayDate = function() {
+      var todayDate = stringDate();
+      function stringDate{
         var todayDate = new Date();
         var month = todayDate.getMonth();
         var day = todayDate.getDay();
         todayDate = month + "/" + day;
         return todayDate;
-      }; console.log(todayDate);
+      } console.log(todayDate);
       while (i < 367) {
         x = 0;
         if (todayDate !== results.data[x]['prayer_date']) {
