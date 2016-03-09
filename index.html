@@ -27,11 +27,13 @@
       today = new Date();
       var one_day = 1000 * 60 * 60 * 24;
 
+      // taking the difference and using floor from Math to round down to whole #.
+      // If we use ceiling, it might jump to next day half way through the day.
       var number_of_days_elapsed = Math.floor((today.getTime() - start.getTime()) / one_day);
       console.log(number_of_days_elapsed + "days elapsed.")
 
-      dataString = dataString + " " + results.data[68]["fajr_azaan"];
-
+      dataString = dataString + " " + results.data[number_of_days_elapsed]["fajr_azaan"];
+      console.log(dataString);
       var newDate = new Date(dataString);
       var hour = newDate.getHours();
       var minutes = newDate.getMinutes();
