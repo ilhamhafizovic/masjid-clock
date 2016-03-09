@@ -19,9 +19,9 @@
       console.log("Parsing complete: first object", results.data[0]["prayer_date"]);
       document.getElementById("test").innerHTML = results.data[68]["isha_azaan"];
       dataString = dataString + " " + results.data[68]["isha_azaan"];
+      console.log(dataString);
     }
   });
-  console.log(dataString);
   var newDate = new Date(dataString);
 
   var hour = newDate.getHours();
