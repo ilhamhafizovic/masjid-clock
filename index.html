@@ -5,12 +5,12 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/4.1.2/papaparse.js"></script>
 </head>
 <body>
-  <p>Fajr<div id='fajr' style="display: inline-block;"></div></p>
-  Sunrise <div id='sunrise'></div>
-  Dhuhr <div id='dhuhr'></div>
-  Asr <div id='asr'></div>
-  Maghrib <div id='maghrib'></div>
-  Isha <div id='isha'></div>
+  Fajr <div id='fajr' style="display: inline-block;">00:00 AM</div><br />
+  Sunrise <div id='sunrise' style="display: inline-block;">00:00 AM</div><br />
+  Dhuhr <div id='dhuhr' style="display: inline-block;">00:00 AM</div><br />
+  Asr <div id='asr' style="display: inline-block;">00:00 AM</div><br />
+  Maghrib <div id='maghrib' style="display: inline-block;">00:00 AM</div><br />
+  Isha <div id='isha' style="display: inline-block;">00:00 AM</div><br />
 
 <script>
   var dataString = "March 09, 2016";
@@ -32,7 +32,10 @@
       var number_of_days_elapsed = Math.floor((today.getTime() - start.getTime()) / one_day);
       console.log(number_of_days_elapsed + "days elapsed.")
 
-      dataString = dataString + " " + results.data[number_of_days_elapsed]["fajr_azaan"];
+      // function to iterate over each salat time and write it into DOM.
+      salatKey = ['fajr', 'sunrise', 'dhuhr', 'asr', 'maghrib', 'isha'];
+
+      dataString = dataString + " " + results.data[number_of_days_elapsed][salatKey[0]+"_azaan"];
       console.log(dataString);
       var newDate = new Date(dataString);
       console.log(newDate);
