@@ -48,11 +48,11 @@
         console.log(hour);
         var minutes = newDate.getMinutes();
         var timeSuffix = "AM";
-        function checkHours(i) {
-          if (i > 12) {
-            i = i - 12;
+        function checkHours(z) {
+          if (z > 12) {
+            z = z - 12;
             timeSuffix = "PM";
-            hour = i;
+            hour = z;
           } console.log(hour);
           console.log("this is i " + i);
         }
