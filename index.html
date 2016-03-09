@@ -27,7 +27,7 @@
       today = new Date();
       var one_day = 1000 * 60 * 60 * 24;
 
-      var number_of_days_elapsed = Math.ceil((today.getTime() - start.getTime()) / one_day);
+      var number_of_days_elapsed = Math.floor((today.getTime() - start.getTime()) / one_day);
       console.log(number_of_days_elapsed + "days elapsed.")
 
       dataString = dataString + " " + results.data[68]["fajr_azaan"];
