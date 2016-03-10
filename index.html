@@ -17,12 +17,13 @@
     function startTime() {
         var today = new Date();
         var h = today.getHours();
+        console.log(h);
         var m = today.getMinutes();
         var s = today.getSeconds();
         h = checkHour(h);
         m = checkTime(m);
         s = checkTime(s);
-        var timeSuffix = "AM";
+        var timeSuffix;
         document.getElementById('time').innerHTML =
         h + ":" + m + "<small class=\"text-muted\" style='font-size:.5em;'>:" + s + "</small>" + " <small style='font-size:0.6em'>" + timeSuffix + "</small>";
 
