@@ -1,3 +1,10 @@
-body {
-  font-size: 13em;
+.list-group {
+  font-size: 5em;
+}
+.list-group-item {
+  border: 0px;
+}
+
+#time {
+  font-size: 20em;
 }

@@ -22,8 +22,11 @@
         h = checkHour(h);
         m = checkTime(m);
         s = checkTime(s);
-        document.getElementById('txt').innerHTML =
-        h + ":" + m + ":" + s;
+        document.getElementById('time').innerHTML =
+        h + ":" + m + "<small class=\"text-muted\" style='font-size:.5em;'>:" + s + "</small>";
+
+        var options = {month: 'long', day: 'numeric', year: 'numeric'};
+        document.getElementById('date').innerHTML = today.toLocaleDateString('en-US', options);
         var t = setTimeout(startTime, 500);
     }
     function checkHour(i) {
@@ -38,23 +41,29 @@
 </head>
 <body onload="startTime()">
 
+  <div class="navbar navbar-default navbar-static-top">
+
+  <p id="date" class="col-md-12 text-right text-muted" style='font-size:3em'></p>
+
+  </div>
+
   <div class="container-fluid">
 
     <div class="row">
-        <div class="col-md-6" id='txt'>.col-md-6</div>
-        <div class="col-md-3">
+        <div class="col-md-6" id='time'>.col-md-6</div>
+        <div class="col-md-3 col-md-offset-1">
 
-          <ul class="list-group">
-            <li class="list-group-item"><strong>Fajr</strong></li>
+          <strong><ul class="list-group">
+            <li class="list-group-item">Fajr</li>
             <li class="list-group-item">Sunrise</li>
             <li class="list-group-item">Dhuhr</li>
             <li class="list-group-item">Asr</li>
             <li class="list-group-item">Maghrib</li>
             <li class="list-group-item">Isha</li>
-          </ul>
+          </ul></strong>
 
         </div>
-        <div class="col-md-3">
+        <div class="col-md-2">
 
           <ul class="list-group">
             <li class="list-group-item" id='fajr'>00:00 AM</li>
