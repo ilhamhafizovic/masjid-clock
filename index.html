@@ -10,19 +10,42 @@
 
   <!-- Bootstrap -->
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-
+  <link href="styles.css" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/4.1.2/papaparse.js"></script>
+
+  <script>
+    function startTime() {
+        var today = new Date();
+        var h = today.getHours();
+        var m = today.getMinutes();
+        var s = today.getSeconds();
+        h = checkHour(h);
+        m = checkTime(m);
+        s = checkTime(s);
+        document.getElementById('txt').innerHTML =
+        h + ":" + m + ":" + s;
+        var t = setTimeout(startTime, 500);
+    }
+    function checkHour(i) {
+        if (i > 13) {i = i - 12}; // converting to 12 hour format
+        return i;
+    }
+    function checkTime(i) {
+        if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+        return i;
+    }
+  </script>
 </head>
-<body>
+<body onload="startTime()">
 
   <div class="container-fluid">
 
     <div class="row">
-        <div class="col-md-6">.col-md-6</div>
+        <div class="col-md-6" id='txt'>.col-md-6</div>
         <div class="col-md-3">
 
           <ul class="list-group">
-            <li class="list-group-item">Fajr</li>
+            <li class="list-group-item"><strong>Fajr</strong></li>
             <li class="list-group-item">Sunrise</li>
             <li class="list-group-item">Dhuhr</li>
             <li class="list-group-item">Asr</li>
