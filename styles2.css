@@ -1,3 +1,6 @@
+.navbar-text {
+  font-size:2.4285714286em;
+}
 .panel-success {
   border-color: #3c763d;
 }
@@ -5,4 +8,30 @@
   color:#fff;
   background-color:#3c763d;
   border-color: #3c763d;
+}
+
+.navbar-right {
+  margin-right: 0px;
+}
+
+#time {
+  font-size: 10em;
+}
+
+small.text-muted {
+  font-size: 0.5714285714em;
+}
+.panel-heading {
+  font-size: 2.5em;
+  font-weight: 200;
+}
+.panel-body {
+  font-size: 2.5em;
+  font-weight: 100;
+}
+
+.well-lg {
+  font-size: 8em;
+  font-weight: bolder;
+  line-height:1.35;
 }
