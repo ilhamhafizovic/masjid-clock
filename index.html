@@ -6,8 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-  <!-- This meta tag will auto-refresh the whole page. 60 sec/min * 60 min/hour * 12 hours = 43,200 sec(s).-->
-  <meta http-equiv="refresh" content="43200">
+  <!-- This meta tag will auto-refresh the whole page. 60 sec/min * 60 min/hour * 6 hours = 21,600 sec(s).-->
+  <meta http-equiv="refresh" content="21600">
   <title>Bosnian Islamic Centre | Prayer Clock</title>
 
   <!-- Bootstrap -->
@@ -70,7 +70,7 @@
 
       <div class="col-md-3 pull-right">
         <div class="panel panel-warning">
-          <div class="panel-heading">Jumua</div>
+          <div class="panel-heading">Jumu'a</div>
           <div class="panel-body" id="jumua">1:30</div>
         </div>
       </div>
@@ -173,7 +173,8 @@
         console.log(hour);
 
         // using the salatId[i] to access each div and write the proper prayer time.
-        document.getElementById(salatId[i]).innerHTML = hour + ":" + minutes;
+        if(salatKey[i] === 'sunrise') {document.getElementById(salatId[i].innerHTML = hour + ":" + minutes + " am")};
+        else {document.getElementById(salatId[i]).innerHTML = hour + ":" + minutes};
       }
     }
   });
