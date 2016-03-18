@@ -8,9 +8,8 @@
   border-color: #3c763d;
 }
 .panel-success>.panel-heading {
-  color:#ffff00;
-  /*background-color:#3c763d;*/
-  background-color: #000000;
+  color:#fff;
+  background-color:#3c763d;
   border-color: #3c763d;
 }
 
@@ -37,8 +36,8 @@ small.text-muted {
   font-weight: 400;
 }
 .col-md-2>.panel>.panel-body{
-  color: #fff;
-  background-color: #3c763d;
+  color: #ffff00;
+  background-color: #000000;
 }
 
 .well-lg {
