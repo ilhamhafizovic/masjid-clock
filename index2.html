@@ -34,7 +34,7 @@
         h + ":" + m + "<small class=\"text-muted\";'>:" + s + " " + timeSuffix + "</small>";
 
         var options = {'weekday':'long', month: 'long', day: 'numeric', year: 'numeric'};
-        document.getElementById('islamicDate').innerHTML = today.toLocaleDateString('ar-SA-u-ca-islamic', options);
+        document.getElementById('islamicDate').innerHTML = today.toLocaleDateString('en-US-u-ca-islamic', options);
         document.getElementById('date').innerHTML = today.toLocaleDateString('en-US', options);
         var t = setTimeout(startTime, 500);
     }
@@ -48,41 +48,49 @@
     }
   </script>
 </head>
-<body onload="startTime(); changeDJ();">
+<body onload="startTime()">
   <div class="navbar navbar-default navbar-static-top">
     <div class="container-fluid">
-      <span class="navbar-text navbar-center"><b class="text-success">Bosnian Islamic Centre</b></span>
+      <!--<span class="navbar-text navbar-center"><b class="text-success">Bosnian Islamic Centre</b></span>-->
       <span class="navbar-text navbar-right"><b class="label label-default" id="islamicDate">| Islamic Date Here |</b></span>
-      <span class="navbar-text navbar-right"><b class="label label-success" id="date">| Date Here |</b></span>
+      <span class="navbar-text"><b class="label label-default" id="date">| Date Here |</b></span>
     </div>
-  </div>
-
-  <div class="well well-lg">
-    <p>These are ADs! Purchase space in the office. I need to add a third line.</p>
   </div>
 
   <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-6 col-md-offset-3 panel panel-default">
-        <div class="panel-body text-center" id="time">5:10 PM</div>
+    <div class="row  text-center">
+      <div class="col-md-3">
+        <div class="panel panel-warning">
+          <div class="panel-heading">Shuruq</div>
+          <div class="panel-body" id="sunrise">00:00 AM</div>
+        </div>
+      </div>
+
+      <div class="col-md-3 pull-right">
+        <div class="panel panel-warning">
+          <div class="panel-heading">Jumua</div>
+          <div class="panel-body" id="jumua">01:30 PM</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="row text-center">
+      <div class="col-md-12 panel panel-default">
+        <div class="panel-body" id="time">5:10 PM</div>
       </div>
     </div>
+
     <div class="row text-center">
       <div class="col-md-2">
-        <div class="panel panel-primary">
+        <div class="panel panel-success">
           <div class="panel-heading">Fajr</div>
           <div class="panel-body" id="fajr">00:00 AM</div>
         </div>
       </div>
       <div class="col-md-2">
         <div class="panel panel-success">
-          <div class="panel-heading">Shuruq</div>
-          <div class="panel-body" id="sunrise">00:00 AM</div>
-        </div>
-      </div>
-      <div class="col-md-2">
-        <div class="panel panel-primary">
-          <div class="panel-heading" id="djcarousel">Dhuhr</div>
+          <div class="panel-heading">Dhuhr</div>
           <div class="panel-body" id="dhuhr">00:00 PM</div>
         </div>
       </div>

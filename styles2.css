@@ -1,3 +1,6 @@
+.col-md-2 {
+  width:20%;
+}
 .navbar-text {
   font-size:2.4285714286em;
 }
@@ -15,18 +18,20 @@
 }
 
 #time {
-  font-size: 10em;
+  font-size: 21.428571429em;
+  font-weight: 900;
 }
 
 small.text-muted {
   font-size: 0.5714285714em;
+  font-weight: 100;
 }
 .panel-heading {
-  font-size: 2.5em;
+  font-size: 3.5714285714em;
   font-weight: 200;
 }
 .panel-body {
-  font-size: 2.5em;
+  font-size: 4.2857142857em;
   font-weight: 100;
 }
 
