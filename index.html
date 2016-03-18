@@ -6,14 +6,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-  <title>Bosnian Islamic Centre Prayer Time Clock</title>
+  <title>Bosnian Islamic Centre | Prayer Clock</title>
 
   <!-- Bootstrap -->
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-  <link href="styles.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <!-- PapaParse CDN || papaparse is used to extract the numbers for the days prayer times. -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/4.1.2/papaparse.js"></script>
 
   <script>
+    var DJHeading = ['Dhuhr', 'Jumua'], i = 0;
+    function changeDJ() {
+      i = (i > 0) ? 0 : 1;
+      document.getElementById('djcarousel').innerHTML = DJHeading[i];
+      setTimeout(changeDJ, 8000);
+    }
     function startTime() {
         var today = new Date();
         var h = today.getHours();
@@ -23,10 +30,11 @@
         h = checkHour(h);
         m = checkTime(m);
         s = checkTime(s);
-        document.getElementById('time').innerHTML =
-        h + ":" + m /*+ "<small class=\"text-muted\" style='font-size:.5em;'>:" + s */+ "</small>" + " <small style='font-size:0.6em'>" + timeSuffix + "</small>";
+        document.getElementById("time").innerHTML =
+        h + ":" + m + "<small class=\"text-muted\";'>:" + s + " " + timeSuffix + "</small>";
 
-        var options = {month: 'long', day: 'numeric', year: 'numeric'};
+        var options = {'weekday':'long', month: 'long', day: 'numeric', year: 'numeric'};
+        document.getElementById('islamicDate').innerHTML = today.toLocaleDateString('en-US-u-ca-islamic', options);
         document.getElementById('date').innerHTML = today.toLocaleDateString('en-US', options);
         var t = setTimeout(startTime, 500);
     }
@@ -41,81 +49,72 @@
   </script>
 </head>
 <body onload="startTime()">
-
   <div class="navbar navbar-default navbar-static-top">
-
-  <b>
-  <p class="col-md-6 text-left text-danger text-uppercase" style='font-size:3em'>Bosnian Islamic Centre</p>
-  <p id="date" class="col-md-6 text-right text-danger" style='font-size:3em'></p>
-  </b>
-
+    <div class="container-fluid">
+      <!--<span class="navbar-text navbar-center"><b class="text-success">Bosnian Islamic Centre</b></span>-->
+      <span class="navbar-text navbar-right"><b class="label label-default" id="islamicDate">| Islamic Date Here |</b></span>
+      <span class="navbar-text"><b class="label label-default" id="date">| Date Here |</b></span>
+    </div>
   </div>
 
   <div class="container-fluid">
+    <div class="row  text-center">
+      <div class="col-md-3">
+        <div class="panel panel-warning">
+          <div class="panel-heading">Shuruq</div>
+          <div class="panel-body" id="sunrise">00:00 AM</div>
+        </div>
+      </div>
 
-    <div class="row">
-
-    <div class="col-md-1 bg-primary">hey</div>
-    <div class="col-md-1 bg-success">hey</div>
-    <div class="col-md-1 bg-info">hey</div>
-    <div class="col-md-1 bg-warning">hey</div>
-    <div class="col-md-1 bg-danger">hey</div>
-    <div class="col-md-1 bg-primary">hey</div>
-    <div class="col-md-1 bg-success">hey</div>
-    <div class="col-md-1 bg-info">hey</div>
-    <div class="col-md-1 bg-warning">hey</div>
-    <div class="col-md-1 bg-danger">hey</div>
-    <div class="col-md-1 bg-primary">hey</div>
-    <div class="col-md-1 bg-success">hey</div>
+      <div class="col-md-3 pull-right">
+        <div class="panel panel-warning">
+          <div class="panel-heading">Jumua</div>
+          <div class="panel-body" id="jumua">01:30 PM</div>
+        </div>
+      </div>
 
     </div>
-    <div class="row">
-        <div class="col-md-6 text-right" id='time'>.col-md-6</div>
 
-        <div class="col-md-5 list-group">
-
-          <div class="col-md-3">
-            Fajr
-          </div>
-          <div class="col-md-2">
-            05:50 AM
-          </div>
-
-        </div>
-
-        <div class="col-md-3 col-md-offset-1">
-
-          <strong><ul class="list-group">
-            <li class="list-group-item">Fajr</li>
-            <li class="list-group-item">Sunrise</li>
-            <li class="list-group-item">Dhuhr</li>
-            <li class="list-group-item">Asr</li>
-            <li class="list-group-item">Maghrib</li>
-            <li class="list-group-item">Isha</li>
-          </ul></strong>
-
-        </div>
-        <div class="col-md-2">
-
-          <ul class="list-group text-justify">
-            <li class="list-group-item" id='fajr'>00:00 AM</li>
-            <li class="list-group-item" id='sunrise'>00:00 AM</li>
-            <li class="list-group-item" id='dhuhr'>00:00 PM</li>
-            <li class="list-group-item" id='asr'>00:00 PM</li>
-            <li class="list-group-item" id='maghrib'>00:00 PM</li>
-            <li class="list-group-item" id='isha'>00:00 PM</li>
-          </ul>
-
-        </div>
+    <div class="row text-center">
+      <div class="col-md-12 panel panel-default">
+        <div class="panel-body" id="time">5:10 PM</div>
+      </div>
     </div>
 
+    <div class="row text-center">
+      <div class="col-md-2">
+        <div class="panel panel-success">
+          <div class="panel-heading">Fajr</div>
+          <div class="panel-body" id="fajr">00:00 AM</div>
+        </div>
+      </div>
+      <div class="col-md-2">
+        <div class="panel panel-success">
+          <div class="panel-heading">Dhuhr</div>
+          <div class="panel-body" id="dhuhr">00:00 PM</div>
+        </div>
+      </div>
+      <div class="col-md-2">
+        <div class="panel panel-success">
+          <div class="panel-heading">Asr</div>
+          <div class="panel-body" id="asr">00:00 PM</div>
+        </div>
+      </div>
+      <div class="col-md-2">
+        <div class="panel panel-success">
+          <div class="panel-heading">Maghrib</div>
+          <div class="panel-body" id="maghrib">00:00 PM</div>
+        </div>
+      </div>
+      <div class="col-md-2">
+        <div class="panel panel-success">
+          <div class="panel-heading">Isha</div>
+          <div class="panel-body" id="isha">00:00 PM</div>
+        </div>
+      </div>
+    </div>
   </div>
-  <!--Fajr <div id='fajr' style="display: inline-block;">00:00 AM</div><br />
-  Sunrise <div id='sunrise' style="display: inline-block;">00:00 AM</div><br />
-  Dhuhr <div id='dhuhr' style="display: inline-block;">00:00 AM</div><br />
-  Asr <div id='asr' style="display: inline-block;">00:00 AM</div><br />
-  Maghrib <div id='maghrib' style="display: inline-block;">00:00 AM</div><br />
-  Isha <div id='isha' style="display: inline-block;">00:00 AM</div><br />-->
+
 
 <script>
   Papa.parse("data.csv", {
@@ -177,6 +176,8 @@
     }
   });
 </script>
+
+
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
