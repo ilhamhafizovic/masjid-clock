@@ -6,13 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-  <!-- This meta tag will auto-refresh the whole page. 60 sec/min * 60 min/hour * 12 hours = 43,200 sec(s).-->
-  <meta http-equiv="refresh" content="43200">
+  <!-- This meta tag will auto-refresh the whole page. 60 sec/min * 60 min/hour * 6 hours = 21,600 sec(s).-->
+  <meta http-equiv="refresh" content="21600">
   <title>Bosnian Islamic Centre | Prayer Clock</title>
 
   <!-- Bootstrap -->
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="styles2.css">
+  <link rel="stylesheet" type="text/css" href="styles.css">
   <!-- PapaParse CDN || papaparse is used to extract the numbers for the days prayer times. -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/4.1.2/papaparse.js"></script>
 
@@ -51,27 +51,31 @@
   </script>
 </head>
 <body onload="startTime()">
-  <div class="navbar navbar-default navbar-static-top">
     <div class="container-fluid">
       <!--<span class="navbar-text navbar-center"><b class="text-success">Bosnian Islamic Centre</b></span>-->
-      <span class="navbar-text navbar-right"><b class="label label-default" id="islamicDate">| Islamic Date Here |</b></span>
-      <span class="navbar-text"><b class="label label-default" id="date">| Date Here |</b></span>
+      <div class="navbar navbar-default navbar-static-top">
+        <span class="navbar-text"><b class="label label-success" id="date">| Date Here |</b></span>
+        <span class="navbar-text navbar-right"><b class="label label-success" id="islamicDate">| Islamic Date Here |</b></span>
+      </div>
     </div>
-  </div>
 
   <div class="container-fluid">
     <div class="row  text-center">
-      <div class="col-md-3">
+      <div class="col-md-4">
         <div class="panel panel-warning">
           <div class="panel-heading">Shuruq</div>
           <div class="panel-body" id="sunrise">00:00 AM</div>
         </div>
       </div>
 
-      <div class="col-md-3 pull-right">
+      <div class="col-md-2 col-md-offset-1">
+        <img src="Bismillah.png" class="img-responsive">
+      </div>
+
+      <div class="col-md-4 pull-right">
         <div class="panel panel-warning">
-          <div class="panel-heading">Jumua</div>
-          <div class="panel-body" id="jumua">01:30 PM</div>
+          <div class="panel-heading">Jumu'a</div>
+          <div class="panel-body" id="jumua">1:30 pm</div>
         </div>
       </div>
 
@@ -87,31 +91,31 @@
       <div class="col-md-2">
         <div class="panel panel-success">
           <div class="panel-heading">Fajr</div>
-          <div class="panel-heading" id="fajr">00:00 AM</div>
+          <div class="panel-body" id="fajr">00:00 AM</div>
         </div>
       </div>
       <div class="col-md-2">
         <div class="panel panel-success">
           <div class="panel-heading">Dhuhr</div>
-          <div class="panel-heading" id="dhuhr">00:00 PM</div>
+          <div class="panel-body" id="dhuhr">00:00 PM</div>
         </div>
       </div>
       <div class="col-md-2">
         <div class="panel panel-success">
           <div class="panel-heading">Asr</div>
-          <div class="panel-heading" id="asr">00:00 PM</div>
+          <div class="panel-body" id="asr">00:00 PM</div>
         </div>
       </div>
       <div class="col-md-2">
         <div class="panel panel-success">
           <div class="panel-heading">Maghrib</div>
-          <div class="panel-heading" id="maghrib">00:00 PM</div>
+          <div class="panel-body" id="maghrib">00:00 PM</div>
         </div>
       </div>
       <div class="col-md-2">
         <div class="panel panel-success">
           <div class="panel-heading">Isha</div>
-          <div class="panel-heading" id="isha">00:00 PM</div>
+          <div class="panel-body" id="isha">00:00 PM</div>
         </div>
       </div>
     </div>
@@ -169,11 +173,15 @@
           }
         }
         checkHours(hour);
-        if (hour < 10) {hour = "0" + hour};
+        // if (hour < 10) {hour = "0" + hour};
         console.log(hour);
 
         // using the salatId[i] to access each div and write the proper prayer time.
-        document.getElementById(salatId[i]).innerHTML = hour + ":" + minutes + " " + timeSuffix;
+        if(salatId[i] == 'sunrise') {
+          document.getElementById(salatId[i]).innerHTML = hour + ":" + minutes + " am";
+        } else {
+          document.getElementById(salatId[i]).innerHTML = hour + ":" + minutes;
+        }
       }
     }
   });
