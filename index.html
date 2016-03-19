@@ -30,6 +30,7 @@
         var s = today.getSeconds();
         var timeSuffix = h >= 12 ? 'PM' : 'AM';
         h = checkHour(h);
+        console.log(h);
         m = checkTime(m);
         s = checkTime(s);
         document.getElementById("time").innerHTML =
@@ -41,7 +42,7 @@
         var t = setTimeout(startTime, 500);
     }
     function checkHour(i) {
-        if (i > 13) {i = i - 12}; // converting to 12 hour format
+        if (i > 12) {i = i - 12;} // converting to 12 hour format
         return i;
     }
     function checkTime(i) {
