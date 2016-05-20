@@ -46,7 +46,7 @@ div.col-md-12 {
 
 #time {
   /*font-size: 21.428571429em;*/
-  font-size: 22em;
+  font-size: 23em; /* This was 22 em, but changed to 23 to fill up a little space on bottom */
   font-weight: 900;
 }
 
