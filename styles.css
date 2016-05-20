@@ -1,14 +1,15 @@
-body {
-  line-height: 1.1428571429;
-}
-
 .img-responsive {
   margin-bottom: 10px;
 }
 
+/*
+body {
+  line-height: 1.1428571429;
+}
+
 .col-md-4 {
   line-height: 1.42857143;
-}
+}*/
 
 .col-md-2 {
   width:20%;
