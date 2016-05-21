@@ -46,8 +46,9 @@ div.col-md-12 {
 
 #time {
   /*font-size: 21.428571429em;*/
-  font-size: 23em; /* This was 22 em, but changed to 23 to fill up a little space on bottom */
+  font-size: 22em; /* This was 22 em, but changed to 23 to fill up a little space on bottom */
   font-weight: 900;
+  line-height:1.5; /* Had to add a line height of 1.5 or 21 pixels and change the font-size back to 22em so that I could see if that would fix the clock problem at the masjid. It is really starting to bug me. */
 }
 
 small.text-muted {
