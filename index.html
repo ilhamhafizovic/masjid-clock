@@ -43,6 +43,7 @@
     }
     function checkHour(i) {
         if (i > 12) {i = i - 12;} // converting to 12 hour format
+        else if (i == 0) {i = 12;} // Midnight is 0, so in order to present properly needs to be set to 12.
         return i;
     }
     function checkTime(i) {
