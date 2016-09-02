@@ -36,8 +36,9 @@
         document.getElementById("time").innerHTML =
         h + ":" + m + "<small class=\"text-muted\";'>:" + s + " " + timeSuffix + "</small>";
 
-        var options = {'weekday':'long', month: 'long', day: 'numeric', year: 'numeric'};
+        var options = {month: 'long', day: 'numeric', year: 'numeric'};
         document.getElementById('date').innerHTML = today.toLocaleDateString('en-US', options);
+        document.getElementById('weekday').innerHTML = today.toLocaleDateString('en-US', {weekday : 'long'})
         today.setDate(today.getDate() - 1);
         document.getElementById('islamicDate').innerHTML = today.toLocaleDateString('en-US-u-ca-islamic', options);
         var t = setTimeout(startTime, 500);
@@ -58,6 +59,7 @@
     <div class="navbar navbar-default navbar-static-top">
       <div class="container-fluid">
         <span class="navbar-text"><b class="label label-success" id="date">| Date Here |</b></span>
+        <span class="navbar-text col-md-4" style="text-align: center"><b class="label label-success" id="weekday">| Weekday Here |</b></span>
         <span class="navbar-text navbar-right"><b class="label label-success" id="islamicDate">| Islamic Date Here |</b></span>
       </div>
     </div>
