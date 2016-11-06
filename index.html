@@ -39,7 +39,7 @@
         var options = {month: 'long', day: 'numeric', year: 'numeric'};
         document.getElementById('date').innerHTML = today.toLocaleDateString('en-US', options);
         document.getElementById('weekday').innerHTML = today.toLocaleDateString('en-US', {weekday : 'long'})
-        // In order to move the Islamic date forward or back, uncomment the code below. 
+        // In order to move the Islamic date forward or back, uncomment the code below.
         // modify the integer value by number of days, use - to go backward, + to go forward.
         // today.setDate(today.getDate() - 1);
         document.getElementById('islamicDate').innerHTML = today.toLocaleDateString('en-US-u-ca-islamic', options);
@@ -82,7 +82,7 @@
       <div class="col-md-4 pull-right">
         <div class="panel panel-warning">
           <div class="panel-heading">Jumu'a</div>
-          <div class="panel-body" id="jumua">1:30 pm</div>
+          <div class="panel-body" id="jumua">12:30 pm</div>
         </div>
       </div>
 
