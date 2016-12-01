@@ -17,12 +17,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/4.1.2/papaparse.js"></script>
 
   <script>
-    var DJHeading = ['Dhuhr', 'Jumua'], i = 0;
-    function changeDJ() {
-      i = (i > 0) ? 0 : 1;
-      document.getElementById('djcarousel').innerHTML = DJHeading[i];
-      setTimeout(changeDJ, 8000);
-    }
+    var i = 0;
     function startTime() {
         var today = new Date();
         var h = today.getHours();
@@ -41,9 +36,27 @@
         document.getElementById('weekday').innerHTML = today.toLocaleDateString('en-US', {weekday : 'long'})
         // In order to move the Islamic date forward or back, uncomment the code below.
         // modify the integer value by number of days, use - to go backward, + to go forward.
-        // today.setDate(today.getDate() - 1);
-        document.getElementById('islamicDate').innerHTML = today.toLocaleDateString('en-US-u-ca-islamic', options);
+        today.setDate(today.getDate() - 1);
+        document.getElementById('islamicDate').innerHTML = islamicDateFormat(today);
         var t = setTimeout(startTime, 500);
+    }
+    function islamicDateFormat(today) {
+      var monthNames = new Array("Muharram",
+                                "Safar",
+                                "Rabi'ul Awwal",
+                                "Rabi'ul Akhir",
+                                "Jumadal Ula",
+                                "Jumadal Akhira",
+                                "Rajab",
+                                "Sha'ban",
+                                "Ramadan",
+                                "Shawwal",
+                                "Dhul Qa'ada",
+                                "Dhul Hijja");
+      month = parseInt(today.toLocaleDateString('en-US-u-ca-islamic').slice(0, 1)) - 1;
+      options = {day: 'numeric', year: 'numeric'};
+      i = monthNames[month] + " " + today.toLocaleDateString('en-US-u-ca-islamic', options);
+      return i;
     }
     function checkHour(i) {
         if (i > 12) {i = i - 12;} // converting to 12 hour format
