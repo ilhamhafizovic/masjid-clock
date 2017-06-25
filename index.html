@@ -36,7 +36,7 @@
         document.getElementById('weekday').innerHTML = today.toLocaleDateString('en-US', {weekday : 'long'})
         // In order to move the Islamic date forward or back, uncomment the code below.
         // modify the integer value by number of days, use - to go backward, + to go forward.
-        today.setDate(today.getDate() - 1);
+        // today.setDate(today.getDate() - 1);
         document.getElementById('islamicDate').innerHTML = islamicDateFormat(today);
         var t = setTimeout(startTime, 500);
     }
@@ -74,7 +74,7 @@
     <div class="navbar navbar-default navbar-static-top">
       <div class="container-fluid">
         <span class="navbar-text"><b class="label label-success" id="date">| Date Here |</b></span>
-        <span class="navbar-text col-md-4" style="text-align: center"><b class="label label-success" id="weekday">| Weekday Here |</b></span>
+        <span class="navbar-text col-md-4" style="text-align: center"><b class="label label-success" id="weekday_fixed">| Eid Mubarak |</b></span>
         <span class="navbar-text navbar-right"><b class="label label-success" id="islamicDate">| Islamic Date Here |</b></span>
       </div>
     </div>
