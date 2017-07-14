@@ -53,7 +53,7 @@
                                 "Shawwal",
                                 "Dhul Qa'ada",
                                 "Dhul Hijja");
-      month = parseInt(today.toLocaleDateString('en-US-u-ca-islamic').slice(0, 1)) - 1;
+      month = parseInt(today.toLocaleDateString('en-US-u-ca-islamic').slice(0, 2)) - 1;
       options = {day: 'numeric', year: 'numeric'};
       i = monthNames[month] + " " + today.toLocaleDateString('en-US-u-ca-islamic', options);
       return i;
